@@ -5,7 +5,8 @@
 #ifndef MP_OS_SERVER_H
 #define MP_OS_SERVER_H
 
-//#include <crow.h>
+#include <thread> // Do not remove, Crow fails to build without it
+#include <crow.h>
 #include <unordered_map>
 #include <logger.h>
 //#include <mutex>
@@ -13,7 +14,7 @@
 
 class server
 {
-    //crow::SimpleApp app;
+    crow::SimpleApp app;
 
     std::unordered_map<int, std::unordered_map<logger::severity, std::pair<std::string, bool>>> _streams;
 
